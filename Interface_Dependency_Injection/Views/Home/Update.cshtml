@@ -1,0 +1,28 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Update";
+}
+<form asp-controller="Home" asp-action="Update" method="post">
+
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+
+    <div>
+        <label asp-for="Quantity"></label>
+        <input asp-for="Quantity" />
+    </div>
+
+    <div>
+        <label asp-for="Category"></label>
+        <input asp-for="Category" />
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-secondary">UPDATE</button>
+    </div>
+</form>
+
+

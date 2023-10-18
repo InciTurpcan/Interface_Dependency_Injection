@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<a asp-controller="/Home" asp-action="Insert" class="btn btn-success">ADD PRODUCT</a>
+
+@foreach (var item in Model)
+{
+    <h5>ID = @item.ID</h5>
+    <h5>NAME = @item.Name</h5>
+    <h5>QUANTİTY = @item.Quantity</h5>
+    <h5>CATEGORY = @item.Category</h5>
+
+    /*  Helpers  = Html , Url , Tag */
+
+    <a href="/Home/Details/@item.ID" class="btn btn-success">DETAİL1</a>
+    <a href="@Url.Action("Details","Home",new { id = item.ID })" class="btn btn-primary">DETAİL2</a>
+    @Html.ActionLink("DETAİL3", "Details" , "Home" , new { id = item.ID } , new { @class="btn btn-danger" }   )
+
+
+    /* AspNet Core Helper */
+    <a asp-controller="Home" asp-action="Details" asp-route-id="@item.ID" class="btn btn-secondary">DETAİL4</a>
+
+    <a asp-controller="Home" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-dark">DELETE</a>
+
+    <a asp-controller="Home" asp-action="Update" asp-route-id="@item.ID" class="btn btn-warning">UPDATE</a>
+
+    <br />
+}
